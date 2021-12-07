@@ -1,0 +1,3 @@
+SELECT customerid, COUNT(item) AS SO_LUONG, SUM(price) AS TONG_GIA 
+FROM items_ordered 
+GROUP BY customerid;
