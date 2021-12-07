@@ -10,7 +10,7 @@ CREATE TABLE  Customer(
 CREATE TABLE Items_ordered(
 	
     CustomerId	 INT not null, 
-   Order_Date DATE,
+    Order_Date DATE,
     Item VARCHAR(50),
     Quantity CHAR(11),
     Price CHAR(50),
@@ -23,7 +23,24 @@ CONSTRAINT fk_item_id_customer
  
 
 
-
+INSERT INTO Customer (Customerid, FirstName, LastName, City, State) VALUES
+(10101,'John','Gray','Lynden','Washington'),
+(10298, 'Leroy', 'Brown', 'Pinetop', 'Arizona'),
+(10299, 'Elroy', 'Keller', 'Snoqualmie', 'Washington'),
+(10315, 'Lisa', 'Jones', 'Oshkosh', 'Wisconsin'),
+(10325, 'Ginger', 'Schultz', 'Pocatello', 'Idaho'),
+(10329, 'Kelly', 'Mendoza', 'Kailua', 'Hawaii'),
+(10330, 'Shawn', 'Dalton', 'Cannon Beach', 'Oregon'),
+(10338, 'Michael', 'Howell', 'Tillamook', 'Oregon'),
+(10339, 'Anthony', 'Sanchez', 'Winslow', 'Arizona'),
+(10408, 'Elroy', 'Cleaver', 'Globe', 'Arizona'),
+(10410, 'Mary Ann', 'Howell', 'Charleston', 'South Carolina'),
+(10413, 'Donald', 'Davids', 'Gila Bend', 'Arizona'),
+(10419, 'Linda', 'Sakahara', 'Nogales', 'Arizona'),
+(10429, 'Sarah', 'Graham', 'Greensboro', 'North Carolina'),
+(10438, 'Kevin', 'Smith', 'Durango', 'Colorado'),
+(10439, 'Conrad', 'Giles', 'Telluride', 'Colorado'),
+(10449, 'Isabela', 'Moore', 'Yuma', 'Arizona');
 
 
 
@@ -61,24 +78,5 @@ INSERT INTO Items_ordered (CustomerId, Order_Date, Item, Quantity, Price) VALUES
 (10449, '2000/03/19', 'Canoe paddle', 2, 40.00),
 (10298, '2000/04/01', 'Ear Muffs', 1, 12.50),
 (10330, '2000/04/19', 'Shovel', 1 , 16.75);
-select * from Items_ordered;
 
-INSERT INTO Cusomters (Cusomtersid, FirstName, LastName, City, State) VALUES
-(10101,'John','Gray','Lynden','Washington'),
-(10298, 'Leroy', 'Brown', 'Pinetop', 'Arizona'),
-(10299, 'Elroy', 'Keller', 'Snoqualmie', 'Washington'),
-(10315, 'Lisa', 'Jones', 'Oshkosh', 'Wisconsin'),
-(10325, 'Ginger', 'Schultz', 'Pocatello', 'Idaho'),
-(10329, 'Kelly', 'Mendoza', 'Kailua', 'Hawaii'),
-(10330, 'Shawn', 'Dalton', 'Cannon Beach', 'Oregon'),
-(10338, 'Michael', 'Howell', 'Tillamook', 'Oregon'),
-(10339, 'Anthony', 'Sanchez', 'Winslow', 'Arizona'),
-(10408, 'Elroy', 'Cleaver', 'Globe', 'Arizona'),
-(10410, 'Mary Ann', 'Howell', 'Charleston', 'South Carolina'),
-(10413, 'Donald', 'Davids', 'Gila Bend', 'Arizona'),
-(10419, 'Linda', 'Sakahara', 'Nogales', 'Arizona'),
-(10429, 'Sarah', 'Graham', 'Greensboro', 'North Carolina'),
-(10438, 'Kevin', 'Smith', 'Durango', 'Colorado'),
-(10439, 'Conrad', 'Giles', 'Telluride', 'Colorado'),
-(10449, 'Isabela', 'Moore', 'Yuma', 'Arizona');
-select * from Cusomters;
+
