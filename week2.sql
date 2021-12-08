@@ -89,12 +89,25 @@ SELECT * FROM items_ordered WHERE item = 'tent';
 SELECT customerid, order_date, item FROM items_ordered WHERE item LIKE 'S%' ;
 -- câu 4 : trả tất cả kết quả khác nhau  từ bảng items_ordered;
 SELECT distinct item FROM items_ordered;
-
---Câu 8
+-- Phan Văn Lộc Loc.PV--
+-- câu 5 :Chọn giá tối đa của bất kỳ mặt hàng nào được đặt hàng trong bảng items_ordered.
+SELECT MAX(price)
+FROM items_ordered;
+-- câu 6:Chọn giá trung bình của tất cả các mặt hàng đã đặt mua trong tháng 12.
+SELECT AVG(price)
+FROM items_ordered
+WHERE order_date LIKE '%Dec%';
+-- câu 7 : Tổng số hàng trong bảng items_ordered là bao nhiêu?
+SELECT COUNT(*)
+FROM items_ordered;
+-- câu 8: --chọn giá trị thấp nhất từ item  có tên là 'tent' trong bảng items_ordered
 SELECT MIN(price) AS GIA_THAP_NHAT
 FROM items_ordered
 WHERE item = 'tent';
---Hiển thị price trị thấp nhất của item 'tent' trong bảng items_ordered
+--Câu 8: --chọn giá trị thấp nhất từ item  có tên là 'tent' trong bảng items_ordered
+SELECT MIN(price) AS GIA_THAP_NHAT
+FROM items_ordered
+WHERE item = 'tent';
 --Câu 9
 SELECT state, count(state) AS SO_LUONG
 FROM cusomters
