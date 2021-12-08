@@ -80,89 +80,33 @@ INSERT INTO Items_ordered (CustomerId, Order_Date, Item, Quantity, Price) VALUES
 (10330, '2000/04/19', 'Shovel', 1 , 16.75);
 
 
--- câu 1 : Select vào bảng customerid từ bảng item_odered và lấy giá trị của id 10449 rồi trả hết các kết quả từ id 10449
-SELECT customerid, item, price FROM items_ordered
-WHERE customerid = 10449;
--- câu 2 : 	Từ bảng intems_ordered trả kết quả với điều kiện là ‘tent’
-SELECT * FROM items_ordered WHERE item = 'tent';
--- câu 3 : Từ bảng customerid, order_date và item từ bảng items_ordered trả về  các gía trị có tên  bắt  đầu bằng “S”.
-SELECT customerid, order_date, item FROM items_ordered WHERE item LIKE 'S%' ;
--- câu 4 : trả tất cả kết quả khác nhau  từ bảng items_ordered;
-SELECT distinct item FROM items_ordered;
+--Lê Quang Sang ex 11-14 week2--
 
---Trung.TQ start--
---c14--
-SELECT customerid, 
---chọn customerid từ bảng items_ordered--
-COUNT(quantity) AS SO_DON_HANG, 
---đếm số lượng đơn hàng--
-SUM(price) AS TONG_GIA
---tổng giá--
+
+-- Câu 11:Lấy giá trị từ bảng customerid sử dụng hàm đếm(COUNT) item sau đó tính tổng giá bằng hàm (SUM) với điều kiện thuộc bảng customerid
+
+SELECT customerid, COUNT(item) AS SO_LUONG, SUM(price) AS TONG_GIA 
+FROM items_ordered 
+GROUP BY customerid;
+
+-- Câu 12:lấy giá trị từ bảng state, đếm(COUNT) số lượng giá trị trong bảng customeid rồi trả ra số lượng sau đó đếm customerid rồi trả ra kết quả với điều kiện customerid >1
+
+SELECT state, COUNT(customerid) AS SO_LUONG
+FROM cusomters
+GROUP BY state
+HAVING COUNT(customerid) > 1;
+
+-- Câu 13:lấy giá trị từ bảng item trả về các giá trị cao nhất và thấp nhất từ bảng item_order và trả lại giá trị tối đa lớn hơn 190.00
+
+SELECT item, MAX(price) AS GIA_CAO_NHAT, MIN(price) AS GIA_THAP_NHAT
+FROM items_ordered
+GROUP BY item
+HAVING MAX(price) > 190.00;
+
+-- Câu 14: lấy giá trị từ bảng customerid đếm(COUNT) số giá trị quantily sau đó tính tổng giá từ bảng price được lấy kết quả từ bảng item_order rồi trả ra giá trị trong quantity lớn hơn 1
+
+SELECT customerid, COUNT(quantity) AS SO_DON_HANG, SUM(price) AS 
+TONG_GIA
 FROM items_ordered
 GROUP BY customerid
---nhóm customerid những customerid giống nhau sẽ hiển thị 1 lần--
 HAVING COUNT(quantity) > 1;
---lọc số lượng quantity >1 theo customerid--
-
---c15--
-SELECT city, firstname, lastname FROM cusomters
---chọn city, firstname, lastname từ bảng cusomters--
-ORDER BY city, firstname ASC;
---nhóm city, firstname theo thứ tự tăng dần những city, firstname giống nhau sẽ hiển thị 1 lần--
-
---c16--
-SELECT customerid, item, price FROM items_ordered
---chọn customerid, item, price từ bảng items_ordered--
-WHERE customerid = 10449
---điều kiện customerid = 10449--
-ORDER BY price DESC;
---nhóm price theo thứ tự giảm dần những price giống nhau sẽ hiển thị 1 lần--
-
---c17--
-SELECT item, price FROM items_ordered
---chọn item, price từ bảng items_ordered--
-WHERE price > 10.00
---điều kiện giá bán >10.00--
-ORDER BY price ASC;
---nhóm price theo thứ tự tăng dần những price giống nhau sẽ hiển thị 1 lần--
---Trung.TQ end--
-
--- câu 17
--- hiển thị giá trị của item và price từ bảng items_ordered với điều kiện giá > 10.00 rồi nhóm chúng và trả ra kết quả theo thứ tự tăng dần 
-SELECT item, price FROM items_ordered WHERE price > 10.00 ORDER BY price ASC
-
--- Câu 18 
-
--- lấy giá trị của bảng customerid,order_date, item từ bảng items_ordered với điều kiện item không là 'Snow shoes' và 'Ear muffs'
- SELECT customerid, order_date , item FROM items_ordered WHERE(item<>'Snow Shoes') AND ( item<>'Ear muffs')
-
-
--- Câu 19 
-
--- lấy giá trị của item và price từ bảng items_ordered với điều kiện là bắt đầu bằng các chử cái 'S,P,F'
- SELECT item, price FROM items_ordered WHERE(item LIKE 'S%') OR (item LIKE 'P%') OR (item LIKE 'F%')
- 
-
--- Câu 20 
-
--- lấy giá trị của order_date, item, price từ bảng items_ordered với điều kiện giá bán lớn hơn 10.00 và nhỏ hơn 80.00 
-SELECT order_date, item, price FROM items_ordered WHERE price BETWEEN 10.00 AND 80.00
-
-
--- Câu 21 
-
--- lấy giá trị của firstname, city, sate từ bảng customer và trả giá trị ra với điều kiện kết quả thuộc ('Arizona'. 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
- SELECT firstname, city, state FROM customer WHERE state IN ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii')
-
--- test demo --
-
--- Câu 20 
-
--- lấy giá trị của order_date, item, price từ bảng items_ordered với điều kiện giá bán lớn hơn 10.00 và nhỏ hơn 80.00 
-SELECT order_date, item, price FROM items_ordered WHERE price BETWEEN 10.00 AND 80.00
-
-
--- Câu 21 
-
--- lấy giá trị của firstname, city, sate từ bảng customer và trả giá trị ra với điều kiện kết quả thuộc ('Arizona'. 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
- SELECT firstname, city, state FROM customer WHERE state IN ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii')
