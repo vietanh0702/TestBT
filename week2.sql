@@ -12,7 +12,7 @@ CREATE TABLE Items_ordered(
     CustomerId	 INT not null, 
     Order_Date DATE,
     Item VARCHAR(50),
-    Quantity CHAR(11),
+    Quantity INT(11),
     Price CHAR(50),
 CONSTRAINT fk_item_id_customer
   FOREIGN KEY (CustomerId)
