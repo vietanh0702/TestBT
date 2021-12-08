@@ -1,4 +1,0 @@
-SELECT state, COUNT(customerid) AS SO_LUONG
-FROM cusomters
-GROUP BY state
-HAVING COUNT(customerid) > 1;
