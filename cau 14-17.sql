@@ -1,4 +1,4 @@
-
+--Trung.TQ start--
 --c14--
 SELECT customerid, 
 --chọn customerid từ bảng items_ordered--
@@ -33,3 +33,4 @@ WHERE price > 10.00
 --điều kiện giá bán >10.00--
 ORDER BY price ASC;
 --nhóm price theo thứ tự tăng dần những price giống nhau sẽ hiển thị 1 lần--
+--Trung.TQ end--
