@@ -90,19 +90,38 @@ SELECT customerid, order_date, item FROM items_ordered WHERE item LIKE 'S%' ;
 -- câu 4 : trả tất cả kết quả khác nhau  từ bảng items_ordered;
 SELECT distinct item FROM items_ordered;
 
---Trung.TQ start--
---c14--
-SELECT customerid, 
---chọn customerid từ bảng items_ordered--
-COUNT(quantity) AS SO_DON_HANG, 
---đếm số lượng đơn hàng--
-SUM(price) AS TONG_GIA
---tổng giá--
+
+--Lê Quang Sang ex 11-14 week2--
+
+-- Câu 11:Lấy giá trị từ bảng customerid sử dụng hàm đếm(COUNT) item sau đó tính tổng giá bằng hàm (SUM) với điều kiện thuộc bảng customerid
+
+SELECT customerid, COUNT(item) AS SO_LUONG, SUM(price) AS TONG_GIA 
+FROM items_ordered 
+GROUP BY customerid;
+
+-- Câu 12:lấy giá trị từ bảng state, đếm(COUNT) số lượng giá trị trong bảng customeid rồi trả ra số lượng sau đó đếm customerid rồi trả ra kết quả với điều kiện customerid >1
+
+SELECT state, COUNT(customerid) AS SO_LUONG
+FROM cusomters
+GROUP BY state
+HAVING COUNT(customerid) > 1;
+
+-- Câu 13:lấy giá trị từ bảng item trả về các giá trị cao nhất và thấp nhất từ bảng item_order và trả lại giá trị tối đa lớn hơn 190.00
+
+SELECT item, MAX(price) AS GIA_CAO_NHAT, MIN(price) AS GIA_THAP_NHAT
+FROM items_ordered
+GROUP BY item
+HAVING MAX(price) > 190.00;
+
+-- Câu 14: lấy giá trị từ bảng customerid đếm(COUNT) số giá trị quantily sau đó tính tổng giá từ bảng price được lấy kết quả từ bảng item_order rồi trả ra giá trị trong quantity lớn hơn 1
+
+SELECT customerid, COUNT(quantity) AS SO_DON_HANG, SUM(price) AS 
+TONG_GIA
 FROM items_ordered
 GROUP BY customerid
---nhóm customerid những customerid giống nhau sẽ hiển thị 1 lần--
 HAVING COUNT(quantity) > 1;
---lọc số lượng quantity >1 theo customerid--
+
+--Trung.TQ start--
 
 --c15--
 SELECT city, firstname, lastname FROM cusomters
