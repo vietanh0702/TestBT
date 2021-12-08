@@ -90,6 +90,21 @@ SELECT customerid, order_date, item FROM items_ordered WHERE item LIKE 'S%' ;
 -- câu 4 : trả tất cả kết quả khác nhau  từ bảng items_ordered;
 SELECT distinct item FROM items_ordered;
 
+--Câu 8
+SELECT MIN(price) AS GIA_THAP_NHAT
+FROM items_ordered
+WHERE item = 'tent';
+--Hiển thị price trị thấp nhất của item 'tent' trong bảng items_ordered
+--Câu 9
+SELECT state, count(state) AS SO_LUONG
+FROM cusomters
+GROUP BY state;
+--Hiển thị số lượng mỗi state trong bảng cusomters và mỗi state chỉ hiển thị duy nhất 1 lần bằng câu lệnh GROUP BY
+--Câu 10
+SELECT item, max(price) AS GIA_CAO_NHAT, min(price) AS GIA_THAP_NHAT
+FROM items_ordered
+GROUP BY item;
+--Hiển thị price cao nhất và thấp nhất của mỗi item và sử dụng GROUP BY để không bị trùng hoặc lặp lại item.
 
 --Lê Quang Sang ex 11-14 week2--
 
