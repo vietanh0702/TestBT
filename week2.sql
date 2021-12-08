@@ -154,5 +154,5 @@ SELECT order_date, item, price FROM items_ordered WHERE price BETWEEN 10.00 AND 
 -- lấy giá trị của firstname, city, sate từ bảng customer và trả giá trị ra với điều kiện kết quả thuộc ('Arizona'. 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
  SELECT firstname, city, state FROM customer WHERE state IN ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii')
 
-
+-- test demo --
 
