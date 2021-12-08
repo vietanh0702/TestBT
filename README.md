@@ -1,2 +1,1 @@
-# Lê Quang Sang
-ex 11-14
+week1-2
