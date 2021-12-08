@@ -1,4 +1,0 @@
-SELECT item, MAX(price) AS GIA_CAO_NHAT, MIN(price) AS GIA_THAP_NHAT
-FROM items_ordered
-GROUP BY item
-HAVING MAX(price) > 190.00;
