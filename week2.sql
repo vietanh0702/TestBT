@@ -79,7 +79,7 @@ INSERT INTO Items_ordered (CustomerId, Order_Date, Item, Quantity, Price) VALUES
 (10298, '2000/04/01', 'Ear Muffs', 1, 12.50),
 (10330, '2000/04/19', 'Shovel', 1 , 16.75);
 
-
+-- Toàn.NVP--
 -- câu 1 : Select vào bảng customerid từ bảng item_odered và lấy giá trị của id 10449 rồi trả hết các kết quả từ id 10449
 SELECT customerid, item, price FROM items_ordered
 WHERE customerid = 10449;
