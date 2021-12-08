@@ -1,0 +1,4 @@
+SELECT customerid, COUNT(quantity) AS SO_DON_HANG, SUM(price) AS TONG_GIA
+FROM items_ordered
+GROUP BY customerid
+HAVING COUNT(quantity) > 1;
